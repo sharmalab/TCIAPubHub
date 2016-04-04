@@ -1,0 +1,82 @@
+body {
+  padding: 0px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.doiSummary{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 12px;
+    margin: 14px 2px;
+}
+.doiDescription{
+    padding-top: 8px;
+}
+.doiTitle{
+    
+}
+#headline {
+    text-align: center;
+    padding: 30px 20px;
+}
+#header{
+    background: url("../images/grunge-blueall2-tcia.jpg");
+    width: 100%;
+    height: 150px;
+    padding: 20px;
+}
+.message, .citation{
+    padding: 10px;
+    font-size: 12px;
+}
+.message{
+    width: 200px;
+}
+
+.sideBarSection {
+    margin-top: 20px;
+}
+.sideBarSection ul {
+    list-style: none;
+    padding: 0;
+
+}
+
+#doiBox{
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 9px;
+    margin: 18px 0;
+}
+
+.doiRow{
+    padding: 8px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+#citationDisclaimer{
+    font-size: 10px;
+    padding: 4px;
+    background: #eee;
+}
+.doiSide {
+    font-weight: bold;
+}
+
+.resourceVal{
+//    padding-left:40px;
+    float: right;
+//    padding: 20px;
+}
+li:hover{
+    background: #eee;
+}
+
+.tab-content{
+    padding: 20px;
+}   

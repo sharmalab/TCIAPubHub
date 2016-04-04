@@ -1,0 +1,10 @@
+{
+  "doi": "http://dx.doi.org/10.7937/K9/TCIA.2014.X7ONY6B1",
+  "description": "This collection contains images from patients with non-small cell lung cancer (NSCLC) imaged prior to surgical excision with both thin-section computed tomography (CT) and whole body positron emissions tomography (PET)/CT scans acquired under Institutional Review Board approval from Stanford University and the Veterans Administration Palo Alto Health Care System. The first installment of 26 cases corresponds to microarray data acquired from the excised samples, which is available on the National Center for Biotechnology Information (NCBI) Gene Expression Omnibus, where Digital Imaging and Communications in Medicine (DICOM) patient names are identical to microarray sample names. 
+
+More information about this data can be found at: [NSCLC Radiogenomics](https://wiki.cancerimagingarchive.net/display/Public/NSCLC+Radiogenomics).",
+  "title": "Non-small cell lung cancer: identifying prognostic imaging biomarkers by leveraging public gene expression microarray data--methods and preliminary results.",
+  "references": "**Radiology**. 2012 Aug;264(2):387-96. doi: 10.1148/radiol.12111607. Epub 2012 Jun 21. PMID: 22723499 ; [PMCID: PMC3401348](#)",
+  "url": "http://localhost:3003/doi?doi=http://dx.doi.org/10.7937/K9/TCIA.2014.X7ONY6B1",
+  "authors": ["Gevaert O", "Xu J", "Hoang CD"]
+}

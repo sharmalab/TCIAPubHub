@@ -1,0 +1,6 @@
+datacite.publisher: (:unav)
+datacite.creator: wululu
+datacite.publicationyear: 1337
+datacite.resourcetype: InteractiveResource
+datacite.title: Wulululu 
+

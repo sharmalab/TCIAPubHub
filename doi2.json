@@ -1,0 +1,8 @@
+{
+  "doi": "http://dx.doi.org/10.7937/K9/TCIA.2015.3BPe5wRq",
+  "description": "This dataset pertains to 74 cases from the **GBM dataset** on which spatial pattern analysis was performed. Spatial Habitat Features derived from Multiparametric Magnetic Resonance Imaging data are associated with Molecular Subtype and 12-month Survival Status in Glioblastoma Multiforme",
+  "title": "Spatial Habitat Features derived from Multiparametric Magnetic Resonance Imaging data from Glioblastoma Multiforme cases",
+  "references": "**Nat Commun.** 2014 Jun 3;5:4006. doi: 10.1038/ncomms5006. Decoding tumour phenotype by noninvasive imaging using a quantitative radiomics approach. [PMID:24892406 ; PMCID:PMC4059926](http://www.ncbi.nlm.nih.gov/pubmed/24892406)",
+  "url": "http://localhost:3003/doi?doi=10.7937/K9/TCIA.2015.3BPe5wRq",
+  "authors": ["Joonsang Lee", "Shivali Narang", "Juan Martinez", "Ganesh Rao", "Arvind Rao"]
+}
