@@ -15,6 +15,9 @@ var path = "/services/test/TCIA_DOI_APP/query";
 var resource_path = "/services/test/TCIA_DOI_RESOURCES";
 
 
+var bindaas_pubhubEndPoint = "http://dragon.cci.emory.edu:9099/services/test/TCIA_DOI_APP/query";
+
+var citeproc_url = "http://crosscite.org/citeproc";
 var bindaas_getVersionsForDOI = "/services/test/DOI_RESOURCE_VERSIONS/query/getVersionsForDoi";
 
 
@@ -38,7 +41,7 @@ router.get("/api/getCitation", function(req, res){
     var lang = req.query.lang;
     console.log(doi);
 
-    var url = "http://crosscite.org/citeproc/format?doi="+encodeURIComponent(doi) + "&style=" + encodeURIComponent(style)+ "&lang=" +encodeURIComponent(lang);
+    var url = citeproc_url+ "/format?doi="+encodeURIComponent(doi) + "&style=" + encodeURIComponent(style)+ "&lang=" +encodeURIComponent(lang);
     console.log(url);
     restler.get(url).on("complete", function(result){
         res.json(result);
