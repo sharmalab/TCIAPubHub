@@ -58,6 +58,31 @@ router.get("/api/getAllDoi", function(req, res){
     });
 });
 
+router.get("/api/getFile", function(req, res){
+
+    var resourceID = req.query.resourceID;
+    var fileName = req.query.fileName;
+    var bindaas_getFileForResource = "http://dragon.cci.emory.edu:9099/services/test/TCIA_DOI_RESOURCES/query/getFileForResourceClone";
+    var bindaas_api_key = "4fbb38a3-1821-436c-a44d-8d3bc5efd33e";
+
+    
+    var url = bindaas_getFileForResource + "?api_key=" +bindaas_api_key + "&resourceID=" + resourceID;
+    console.log(url);
+
+    var request = superagent.get(url);
+       res.header('Content-Disposition', 'attachment; filename="' + fileName + '"');
+
+    request.pipe(res);
+
+    /*
+    superagent.get(url)
+        .end(function(fres){
+            console.log(fres);
+            return res.send(fres);
+        });     
+    */
+});
+
 router.get("/query/getAllDoi", function(req, res) {
 //    http://imaging.cci.emory.edu:9099/services/test/Metadata/query/getAll?api_key=c0327219-68b2-4a40-9801-fc99e8e1e76f&
     var getAllUrl = createUrl("/getAll?api_key=4fbb38a3-1821-436c-a44d-8d3bc5efd33e");
@@ -234,11 +259,16 @@ router.get("/api/getDoi", function(req, res) {
 router.get("/", function(req, res) {
     res.render("index", { title: "Express" });
 });
+router.get("/index", function(req, res) {
+    res.render("index", { title: "Express" });
+});
+
+
 
 router.get("/ganesh", function(req, res){
     res.json({"hello": "world"});
 });
-router.get("/doi", function(req, res){
+router.get("/details", function(req, res){
     res.render("doi");     
 });
 
