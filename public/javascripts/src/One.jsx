@@ -12,8 +12,11 @@ var ButtonToolbar = Bootstrap.ButtonToolbar;
 var DropdownButton = Bootstrap.DropdownButton;
 var MenuItem = Bootstrap.MenuItem;
 
-var citationAPI = "http://localhost:3003/api/getCitation";
-var getVersionsForDoi = "http://localhost:3003/api/getVersionsForDoi";
+var citationAPI = "api/getCitation";
+var getVersionsForDoi = "api/getVersionsForDoi";
+
+
+
 
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
@@ -33,7 +36,7 @@ var Citation = React.createClass({
     },
     componentDidMount: function(){
         var self = this;
-        var citationUrl = "http://localhost:3003/api/getCitation?style=apa&lang=en-US&doi=";
+        var citationUrl = "api/getCitation?style=apa&lang=en-US&doi=";
         var doi = self.props.doi.slice(18,self.props.doi.length);
         
         //console.log(doi);
@@ -157,7 +160,7 @@ var App = React.createClass({
         //console.log(doi);
         var version = getParameterByName("version", url);
 
-        var getDoiUrl = "/api/getDoi?doi="+encodeURI(doi);
+        var getDoiUrl = "api/getDoi?doi="+encodeURI(doi);
         console.log(getDoiUrl);
         superagent.get(getDoiUrl)
 		.end(
@@ -168,7 +171,7 @@ var App = React.createClass({
                 console.log('...');
                 URL = data[0].url;
                 if(doi && version){
-                    var getResources = "/api/getResources?doi="+encodeURI(doi) + "&version="+version;
+                    var getResources = "api/getResources?doi="+encodeURI(doi) + "&version="+version;
                     console.log(getResources);
                     console.log("getting resources for version");
                     superagent.get(getResources)
@@ -222,7 +225,11 @@ var App = React.createClass({
                     res_key++;
                     var resource = r[0];
                     console.log(resource.info);
-                    console.log(resource.info.resourceData); 
+                    console.log(resource.info.resourceData);
+
+                    if(resource.type == "file"){
+                        resource.info.resourceData = "http://dragon.cci.emory.edu/tcia_pubhub/api/getFile?resourceID="+resource.resourceID + "&fileName=" + resource.fileName;
+                    } 
                             
                     return <li key={res_key} id={res_key} className="list-group-item">
                             <div className="row">
@@ -255,7 +262,7 @@ var App = React.createClass({
 							self.state.data ?
 								<div>
                                     <div className="row" style={{"paddingLeft": "20px"}}>
-                                    <a href="/" ><h5>Homepage</h5></a>
+                                    <a href="index" ><h5>Homepage</h5></a>
                                     </div>
                                     <h2>{self.state.data.title}</h2>
                                     <div><Citation doi={self.state.data.doi} /></div>

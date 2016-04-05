@@ -58,7 +58,7 @@
 	    },
 	    componentDidMount: function componentDidMount() {
 	        var self = this;
-	        var citationUrl = "http://localhost:3003/api/getCitation?style=apa&lang=en-US&doi=";
+	        var citationUrl = "api/getCitation?style=apa&lang=en-US&doi=";
 	        var doi = self.props.doi.slice(18, self.props.doi.length);
 	        console.log(doi);
 	        citationUrl += doi;
@@ -140,7 +140,7 @@
 	    },
 	    componentDidMount: function componentDidMount() {
 	        var self = this;
-	        superagent.get("/api/getAllDoi").end(function (err, res) {
+	        superagent.get("api/getAllDoi").end(function (err, res) {
 	            var response = JSON.parse(res.text);
 	            console.log(response);
 	            if (response.error) {
@@ -208,6 +208,7 @@
 
 	var App = React.createClass({
 	    displayName: "App",
+
 
 	    render: function render() {
 
@@ -8138,6 +8139,10 @@
 	  }
 	};
 
+	function registerNullComponentID() {
+	  ReactEmptyComponentRegistry.registerNullComponentID(this._rootNodeID);
+	}
+
 	var ReactEmptyComponent = function (instantiate) {
 	  this._currentElement = null;
 	  this._rootNodeID = null;
@@ -8146,7 +8151,7 @@
 	assign(ReactEmptyComponent.prototype, {
 	  construct: function (element) {},
 	  mountComponent: function (rootID, transaction, context) {
-	    ReactEmptyComponentRegistry.registerNullComponentID(rootID);
+	    transaction.getReactMountReady().enqueue(registerNullComponentID, this);
 	    this._rootNodeID = rootID;
 	    return ReactReconciler.mountComponent(this._renderedComponent, rootID, transaction, context);
 	  },
@@ -18869,7 +18874,7 @@
 
 	'use strict';
 
-	module.exports = '0.14.7';
+	module.exports = '0.14.8';
 
 /***/ },
 /* 147 */
