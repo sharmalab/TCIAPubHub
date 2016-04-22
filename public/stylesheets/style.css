@@ -79,4 +79,8 @@ li:hover{
 
 .tab-content{
     padding: 20px;
-}   
+}
+.shareaholic-canvas   {
+    zoom: 0.5;
+    margin-top: -5px;
+}
