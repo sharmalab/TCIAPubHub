@@ -326,7 +326,15 @@ var App = React.createClass({
                                             :
                                                 <div />
                                             }
-
+                                                 <div className="row doiRow">
+                                                     <div className="col-md-3 doiSide">
+                                                        Share
+                                                    </div>
+                                                    <div className="col-md-9">
+                                                        <div><div className='shareaholic-canvas' data-app='share_buttons' data-app-id=''></div>
+</div>
+                                                    </div>               
+                                                </div>           
 
                                     </div>
                                     

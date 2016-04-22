@@ -226,7 +226,7 @@
 	                React.createElement(
 	                    "h3",
 	                    { id: "headline" },
-	                    " Share, publish, lorem ipsum dolor"
+	                    " TCIA PubHub"
 	                ),
 	                React.createElement(
 	                    "div",

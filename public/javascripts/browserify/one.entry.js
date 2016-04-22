@@ -493,7 +493,25 @@
 	                                        self.state.data.keywords
 	                                    )
 	                                )
-	                            ) : React.createElement("div", null)
+	                            ) : React.createElement("div", null),
+	                            React.createElement(
+	                                "div",
+	                                { className: "row doiRow" },
+	                                React.createElement(
+	                                    "div",
+	                                    { className: "col-md-3 doiSide" },
+	                                    "Share"
+	                                ),
+	                                React.createElement(
+	                                    "div",
+	                                    { className: "col-md-9" },
+	                                    React.createElement(
+	                                        "div",
+	                                        null,
+	                                        React.createElement("div", { className: "shareaholic-canvas", "data-app": "share_buttons", "data-app-id": "" })
+	                                    )
+	                                )
+	                            )
 	                        ),
 	                        React.createElement(
 	                            "div",

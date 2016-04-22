@@ -9,21 +9,38 @@ var async = require("async");
 
 
 
+var bindaas_api_key = "4fbb38a3-1821-436c-a44d-8d3bc5efd33e";
+var bindaas_host = "http://dragon.cci.emory.edu";
+var bindaas_port_or_service = "/services";
+var bindaas_project = "/test";
+var app_apis = "/TCIA_DOI_APP";
+var doi_apis = "/TCIA_DOI_RESOURCES";
+var doi_version_apis = "/DOI_RESOURCE_VERSIONS";
+
+var bindaas_getFileForResource = bindaas_host + bindaas_port_or_service + bindaas_project + app_apis + "/query";
+var bindaas_getVersionsForDOI = bindaas_host + bindaas_port_or_service + bindaas_project + doi_version_apis + "/query/getVersionsForDoi";
+var bindaas_resourceById = bindaas_host + bindaas_port_or_service + bindaas_project + doi_apis + "/query/getByResourceID";
+
+
+
+
+/*
 var host = "http://dragon.cci.emory.edu";
 var port = 9099;
 var path = "/services/test/TCIA_DOI_APP/query";
 var resource_path = "/services/test/TCIA_DOI_RESOURCES";
+*/
 
 
-var bindaas_pubhubEndPoint = "http://dragon.cci.emory.edu:9099/services/test/TCIA_DOI_APP/query";
-
+//var bindaas_pubhubEndPoint = "http://dragon.cci.emory.edu:9099/services/test/TCIA_DOI_APP/query";
 var citeproc_url = "http://crosscite.org/citeproc";
-var bindaas_getVersionsForDOI = "/services/test/DOI_RESOURCE_VERSIONS/query/getVersionsForDoi";
+//var bindaas_getVersionsForDOI = "/services/test/DOI_RESOURCE_VERSIONS/query/getVersionsForDoi";
+
 
 
 var createUrl = function(endpoint) {
-    var url = host+ ":"+port + path + endpoint;
-    
+    //var url = host+ ":"+port + path + endpoint;
+    var url = bindaas_host + bindaas_port_or_service + bindaas_project + app_apis +"/query" + endpoint;
     return url;
 };
 
@@ -62,8 +79,8 @@ router.get("/api/getFile", function(req, res){
 
     var resourceID = req.query.resourceID;
     var fileName = req.query.fileName;
-    var bindaas_getFileForResource = "http://dragon.cci.emory.edu:9099/services/test/TCIA_DOI_RESOURCES/query/getFileForResourceClone";
-    var bindaas_api_key = "4fbb38a3-1821-436c-a44d-8d3bc5efd33e";
+    //var bindaas_getFileForResource = "http://dragon.cci.emory.edu:9099/services/test/TCIA_DOI_RESOURCES/query/getFileForResourceClone";
+    //var bindaas_api_key = "4fbb38a3-1821-436c-a44d-8d3bc5efd33e";
 
     
     var url = bindaas_getFileForResource + "?api_key=" +bindaas_api_key + "&resourceID=" + resourceID;
@@ -82,6 +99,7 @@ router.get("/api/getFile", function(req, res){
         });     
     */
 });
+
 
 router.get("/query/getAllDoi", function(req, res) {
 //    http://imaging.cci.emory.edu:9099/services/test/Metadata/query/getAll?api_key=c0327219-68b2-4a40-9801-fc99e8e1e76f&
@@ -109,25 +127,42 @@ router.get("/query/getAllDoi", function(req, res) {
             var response = DOIs;
             console.log("....");
             console.log(response);
-            res.json(JSON.parse(response));
+            try{
+                res.json(JSON.parse(response));
+            } catch(e){
+                res.send(500);
+            }
         });
+    
 
     }).on("error", function(error){
         console.log("error");
         console.log(error);
+        res.send(500);
     });
     //console.log(request);
 });
 
 router.get("/api/getVersionsForDoi" ,function(req, res){
-    var api_key = "4fbb38a3-1821-436c-a44d-8d3bc5efd33e";
+    //var api_key = "4fbb38a3-1821-436c-a44d-8d3bc5efd33e";
     var doi = req.query.doi;
+    //console.log(doi);
+    //console.log(url);
     if(doi){
+        console.log("asdfadsfsadfSA");
+        //var url = bindaas_getVersionsForDOI + "?api_key="+api_key + "&doi=" + (doi);
+        console.log(bindaas_getVersionsForDOI);
+        console.log("....");
+        console.log(bindaas_api_key);
+        //console.log(url); 
+        var url = bindaas_getVersionsForDOI + "?api_key=" + bindaas_api_key + "&doi=" + (doi);
+        console.log(url);
+        //var getverUrl = bindaas_getVersionsForDOI + "?api_key=" + bindaas_api_key + "&doi=" + (doi);
 
-        var url = host + bindaas_getVersionsForDOI + "?api_key="+api_key + "&doi=" + (doi);
-        console.log(url); 
+         
         http.get(url, function(ver_res){
             var versions = "";
+            
             ver_res.on("data", function(data){
                 versions += data;
                 console.log(data);
@@ -135,7 +170,8 @@ router.get("/api/getVersionsForDoi" ,function(req, res){
             ver_res.on("end", function(){
                 versions = JSON.parse(versions);
                 console.log(versions);
-                return res.json(versions);
+                res.json(versions);
+                return;
             });
             ver_res.on("err", function(){
                 return res.status(408).send("Couldn't connect to bindaas. Timeed out");
@@ -152,12 +188,12 @@ router.get("/api/getVersionsForDoi" ,function(req, res){
 router.get("/api/getResources", function(req, res) {
     var doi = req.query.doi;
     var version = req.query.version;
-    var bindaas_resourceById = "http://dragon.cci.emory.edu:9099/services/test/TCIA_DOI_RESOURCES/query/getByResourceID";
-    var api_key = "4fbb38a3-1821-436c-a44d-8d3bc5efd33e";
+    //var bindaas_resourceById = "http://dragon.cci.emory.edu:9099/services/test/TCIA_DOI_RESOURCES/query/getByResourceID";
+    var api_key = bindaas_api_key;
     var doi = req.query.doi;
     if(doi){
 
-        var url = host + bindaas_getVersionsForDOI + "?api_key="+api_key + "&doi=" + (doi);
+        var url = bindaas_getVersionsForDOI + "?api_key="+api_key + "&doi=" + (doi);
         console.log(url); 
         http.get(url, function(ver_res){
             var versions = "";

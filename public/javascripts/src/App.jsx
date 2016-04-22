@@ -133,7 +133,7 @@ var App = React.createClass({
             </div>
 
                 <div className="container" id="main">
-                    <h3 id="headline"> Share, publish, lorem ipsum dolor</h3>
+                    <h3 id="headline"> TCIA PubHub</h3>
 
                     <div id="allDois" className="col-md-10 col-md-offset-1">
                     <AllDOI />
