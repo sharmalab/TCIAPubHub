@@ -103,7 +103,7 @@ router.get("/api/getFile", function(req, res){
 
 router.get("/query/getAllDoi", function(req, res) {
 //    http://imaging.cci.emory.edu:9099/services/test/Metadata/query/getAll?api_key=c0327219-68b2-4a40-9801-fc99e8e1e76f&
-    var getAllUrl = createUrl("/getAll?api_key=4fbb38a3-1821-436c-a44d-8d3bc5efd33e");
+    var getAllUrl = createUrl("/getAll?api_key="+bindaas_api_key);
     console.log(getAllUrl);
     console.log("here");
     var request = http.get(getAllUrl, function(res_){
@@ -276,7 +276,7 @@ router.get("/api/getResourcesForDoi", function(req, res) {
 router.get("/api/getDoi", function(req, res) {
     var doi = req.query.doi;
 
-    var url = createUrl("/getByDoi?api_key=4fbb38a3-1821-436c-a44d-8d3bc5efd33e&doi="+doi);
+    var url = createUrl("/getByDoi?api_key="+bindaas_api_key+ "&doi="+doi);
     console.log(url);
     http.get(url, function(res_){
         var DOI = "";
