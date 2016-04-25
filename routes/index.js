@@ -168,7 +168,11 @@ router.get("/api/getVersionsForDoi" ,function(req, res){
                 console.log(data);
             });
             ver_res.on("end", function(){
-                versions = JSON.parse(versions);
+                try{
+                    versions = JSON.parse(versions);
+                } catch(e){
+                    return res.status(500);
+                }
                 console.log(versions);
                 res.json(versions);
                 return;
@@ -202,7 +206,11 @@ router.get("/api/getResources", function(req, res) {
                 console.log(data);
             });
             ver_res.on("end", function(){
-                versions = JSON.parse(versions);
+                try{
+                    versions = JSON.parse(versions);
+                } catch (e){
+                    return res.status(500);
+                }
                 console.log(versions);
                 var versionID = req.query.version;
                 var resourceIDs = [];
@@ -263,9 +271,15 @@ router.get("/api/getResourcesForDoi", function(req, res) {
             console.log(data);
         });
         res_.on("end", function(){
+            
             var response = resources;
+            try {
+                response = JSON.parse(response);
+            } catch (e){
+                return res.status(500);
+            }
             console.log(resources);
-            return res.json(JSON.parse(response));
+            return res.json((response));
         });
         res_.on("error", function(err){
             return res.json({"error": err}); 
@@ -287,7 +301,13 @@ router.get("/api/getDoi", function(req, res) {
         res_.on("end", function(){
             var response = DOI;
             console.log(response);
-            res.json(JSON.parse(response));
+            try{
+                response = JSON.parse(response);
+                return res.json(response);
+            } catch(e){
+                return res.status(500);
+            }
+            //res.json(JSON.parse(response));
         });
     });
     //res.send("Hello");

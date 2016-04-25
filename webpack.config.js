@@ -1,3 +1,7 @@
+var webpack = require("webpack");
+
+var uglify = new webpack.optimize.UglifyJsPlugin({});
+
 module.exports = {
     entry: {
         all: "./public/javascripts/src/App.jsx",
@@ -14,5 +18,6 @@ module.exports = {
                 loader: "babel?presets[]=react&presets=es2015"
             }
         ]
-    }
+    },
+    plugins: [uglify]
 };

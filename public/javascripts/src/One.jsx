@@ -228,7 +228,7 @@ var App = React.createClass({
                     console.log(resource.info.resourceData);
 
                     if(resource.type == "file"){
-                        resource.info.resourceData = "http://dragon.cci.emory.edu/tcia_pubhub/api/getFile?resourceID="+resource.resourceID + "&fileName=" + resource.fileName;
+                        resource.info.resourceData = "api/getFile?resourceID="+resource.resourceID + "&fileName=" + resource.fileName;
                     } 
                             
                     return <li key={res_key} id={res_key} className="list-group-item">
