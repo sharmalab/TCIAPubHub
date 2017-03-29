@@ -262,7 +262,7 @@ var App = React.createClass({
 							self.state.data ?
 								<div>
                                     <div className="row" style={{"paddingLeft": "20px"}}>
-                                    <a href="index" ><h5>Homepage</h5></a>
+                                    <a href="https://pubhub-admin.cancerimagingarchive.net/index" ><h5>Homepage</h5></a>
                                     </div>
                                     <h2>{self.state.data.title}</h2>
                                     <div><Citation doi={self.state.data.doi} /></div>
@@ -284,6 +284,22 @@ var App = React.createClass({
                                                 <div />
                                             }
 
+
+                                            {self.state.data.doi
+                                            ?
+                                                <div className="row doiRow">
+                                                    <div className="col-md-3 doiSide">
+                                                        DOI
+                                                    </div>
+                                                    <div className="col-md-9">
+                                                        <div>{self.state.data.doi}</div>
+                                                    </div>
+                                                </div>
+                                            :
+                                                <div />
+                                            }
+
+           
                                             {self.state.data.authors 
                                             ?
                                                 <div className="row doiRow">
