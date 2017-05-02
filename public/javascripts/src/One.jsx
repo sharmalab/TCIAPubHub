@@ -120,11 +120,12 @@ var Versions = React.createClass({
         var key = 0;
         //check if version in url
         var ver_in_url = getParameterByName("version", url);
+	var doi = getParameterByName("doi", url);
         console.log("Showing version: "+ver_in_url);
         console.log(self.state.versions);
         if(self.state.versions){
             version_list = self.state.versions.map(function(version){
-                var ver_url = URL + "&version="+version.versionID;
+                var ver_url ="/details?doi="+ doi+ "&version="+version.versionID;
                 key++;
 
                 if(ver_in_url == version.versionID){
@@ -262,7 +263,7 @@ var App = React.createClass({
 							self.state.data ?
 								<div>
                                     <div className="row" style={{"paddingLeft": "20px"}}>
-                                    <a href="https://pubhub-admin.cancerimagingarchive.net/index" ><h5>Homepage</h5></a>
+                                    <a href="/index" ><h5>Homepage</h5></a>
                                     </div>
                                     <h2>{self.state.data.title}</h2>
                                     <div><Citation doi={self.state.data.doi} /></div>
