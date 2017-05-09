@@ -213,7 +213,8 @@ var App = React.createClass({
                     return <span key={id}>{author}; </span>
                 });
             }
-        }
+     
+	}
         var Resources = <div>Select a version first </div>;
         if(self.state.resources){
             var res_key =0;
@@ -234,7 +235,7 @@ var App = React.createClass({
                             
                     return <li key={res_key} id={res_key} className="list-group-item">
                             <div className="row">
-                                <strong style={{"paddingLeft": "15px"}}  className="list-group-item-heading">
+                                <strong style={{"paddingLeft": "16px"}}  className="list-group-item-heading">
                                     {resource.info.resourceName}
                                 </strong>
                                 <div className="list-group-item-text">
@@ -299,6 +300,21 @@ var App = React.createClass({
                                             :
                                                 <div />
                                             }
+
+                                            {self.state.data.url
+                                            ?
+                                                <div className="row doiRow">
+                                                    <div className="col-md-3 doiSide">
+                                                        URL
+                                                    </div>
+                                                    <div className="col-md-9">
+                                                        <div><a href={self.state.data.url}>{self.state.data.url}</a></div>
+                                                    </div>
+                                                </div>
+                                            :
+                                                <div />
+                                            }
+
 
            
                                             {self.state.data.authors 
