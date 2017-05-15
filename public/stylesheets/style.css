@@ -6,11 +6,15 @@ body {
 a {
   color: #00B7FF;
 }
-.doiSummary {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 12px;
-  margin: 14px 2px;
+h3{
+  margin-top: 0px;
+}
+.doiSummary{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 9px;
+    margin: 14px 2px;
+    background-color:rgba(192,192,192,0.33);
 }
 .doiDescription {
   padding-top: 8px;
