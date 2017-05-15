@@ -181,8 +181,7 @@ var App = React.createClass({
       console.log("...");
       URL = data[0].url;
       if (doi) {
-        var getResources =
-          "api/getResources?doi=" + encodeURI(doi);
+        var getResources = "api/getResources?doi=" + encodeURI(doi);
         if (version) {
           var getResources = getResources + "&version=" + version;
         }
@@ -289,13 +288,17 @@ var App = React.createClass({
 
             {self.state.data
               ? <div>
-                  <div className="row" style={{ paddingLeft: "20px" }}>
-                    <a href="/index"><h5>Homepage</h5></a>
+                  <div className="row pagebar" style={{ paddingLeft: "20px" }}>
+                    <a href="/index">Homepage</a>
+                    <span id="headlink_spacer"> &nbsp;&gt;&nbsp;</span>
+                    <a href="/index">List of DOIs</a>
+                    <span id="headlink_spacer"> &nbsp;&gt;&nbsp;</span>
+                    <a href={self.state.data.url}>  {self.state.data.title}</a>
                   </div>
                   <h2>{self.state.data.title}</h2>
                   <div><Citation doi={self.state.data.doi} /></div>
                   <div id="citationDisclaimer">
-                    If you use these data, please add this citation to your scholarly resources. Learn about Data Citation Standards.
+                    If you use these data, please add this citation to your scholarly resources. <a href="https://wiki.cancerimagingarchive.net/display/Public/Data+Usage+Policies+and+Restrictions">Learn about Data Citation Standards.</a>
                   </div>
                   <div id="doiBox">
 
