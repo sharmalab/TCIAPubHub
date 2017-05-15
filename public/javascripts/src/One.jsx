@@ -291,8 +291,6 @@ var App = React.createClass({
                   <div className="row pagebar" style={{ paddingLeft: "20px" }}>
                     <a href="/index">Homepage</a>
                     <span id="headlink_spacer"> &nbsp;&gt;&nbsp;</span>
-                    <a href="/index">List of DOIs</a>
-                    <span id="headlink_spacer"> &nbsp;&gt;&nbsp;</span>
                     <a href={self.state.data.url}>  {self.state.data.title}</a>
                   </div>
                   <h2>{self.state.data.title}</h2>
