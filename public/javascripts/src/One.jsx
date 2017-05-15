@@ -298,7 +298,7 @@ var App = React.createClass({
                   <h2>{self.state.data.title}</h2>
                   <div><Citation doi={self.state.data.doi} /></div>
                   <div id="citationDisclaimer">
-                    If you use these data, please add this citation to your scholarly resources. Learn about Data Citation Standards.
+                    If you use these data, please add this citation to your scholarly resources. <a href="https://wiki.cancerimagingarchive.net/display/Public/Data+Usage+Policies+and+Restrictions">Learn about Data Citation Standards.</a>
                   </div>
                   <div id="doiBox">
 
