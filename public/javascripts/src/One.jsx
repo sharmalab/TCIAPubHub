@@ -181,8 +181,7 @@ var App = React.createClass({
       console.log("...");
       URL = data[0].url;
       if (doi) {
-        var getResources =
-          "api/getResources?doi=" + encodeURI(doi);
+        var getResources = "api/getResources?doi=" + encodeURI(doi);
         if (version) {
           var getResources = getResources + "&version=" + version;
         }

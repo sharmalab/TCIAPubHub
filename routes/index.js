@@ -92,7 +92,9 @@ router.get("/api/getAllDoi", function(req, res) {
       console.log("...");
       res.on("error", function(err) {
         console.log("error");
-        res.json(JSON.parse({ error: err }));
+        res.json(JSON.parse({
+          error: err
+        }));
       });
       res_.on("end", function() {
         //var response = JSON.parse(DOIs);
@@ -129,7 +131,8 @@ router.get("/api/getFile", function(req, res) {
   console.log(url);
 
   var request = superagent.get(url);
-  res.header("Content-Disposition", 'attachment; filename="' + fileName + '"');
+  res.header("Content-Disposition", 'attachment; filename="' + fileName +
+    '"');
 
   request.pipe(res);
 
@@ -160,7 +163,8 @@ router.get("/api/getVersionsForDoi", function(req, res) {
     console.log(bindaas_api_key);
     //console.log(url);
     var url =
-      bindaas_getVersionsForDOI + "?api_key=" + bindaas_api_key + "&doi=" + doi;
+      bindaas_getVersionsForDOI + "?api_key=" + bindaas_api_key + "&doi=" +
+      doi;
     console.log(url);
     //var getverUrl = bindaas_getVersionsForDOI + "?api_key=" + bindaas_api_key + "&doi=" + (doi);
 
@@ -182,7 +186,8 @@ router.get("/api/getVersionsForDoi", function(req, res) {
         return;
       });
       ver_res.on("err", function() {
-        return res.status(408).send("Couldn't connect to bindaas. Timeed out");
+        return res.status(408).send(
+          "Couldn't connect to bindaas. Timeed out");
       });
     });
     console.log(url);
@@ -198,7 +203,8 @@ router.get("/api/getResources", function(req, res) {
   var api_key = bindaas_api_key;
   var doi = req.query.doi;
   if (doi) {
-    var url = bindaas_getVersionsForDOI + "?api_key=" + api_key + "&doi=" + doi;
+    var url = bindaas_getVersionsForDOI + "?api_key=" + api_key + "&doi=" +
+      doi;
     console.log(url);
     http.get(url, function(ver_res) {
       var versions = "";
@@ -230,10 +236,10 @@ router.get("/api/getResources", function(req, res) {
             superagent
               .get(
                 bindaas_getResourceById +
-                  "?api_key=" +
-                  api_key +
-                  "&resourceID=" +
-                  resourceID
+                "?api_key=" +
+                api_key +
+                "&resourceID=" +
+                resourceID
               )
               .end(function(err, res) {
                 resources.push(res.body);
@@ -251,7 +257,8 @@ router.get("/api/getResources", function(req, res) {
         //return res.json(versions);
       });
       ver_res.on("err", function() {
-        return res.status(408).send("Couldn't connect to bindaas. Timeed out");
+        return res.status(408).send(
+          "Couldn't connect to bindaas. Timeed out");
       });
     });
     console.log(url);
@@ -293,7 +300,9 @@ router.get("/api/getResourcesForDoi", function(req, res) {
       return res.json(response);
     });
     res_.on("error", function(err) {
-      return res.json({ error: err });
+      return res.json({
+        error: err
+      });
     });
   });
 });
@@ -301,7 +310,8 @@ router.get("/api/getResourcesForDoi", function(req, res) {
 router.get("/api/getDoi", function(req, res) {
   var doi = req.query.doi;
 
-  var url = createUrl("/getByDoi?api_key=" + bindaas_api_key + "&doi=" + doi);
+  var url = createUrl("/getByDoi?api_key=" + bindaas_api_key + "&doi=" +
+    doi);
   console.log(url);
   http.get(url, function(res_) {
     var DOI = "";
@@ -326,14 +336,20 @@ router.get("/api/getDoi", function(req, res) {
 
 /* GET home page. */
 router.get("/", function(req, res) {
-  res.render("index", { title: "Express" });
+  res.render("index", {
+    title: "Express"
+  });
 });
 router.get("/index", function(req, res) {
-  res.render("index", { title: "Express" });
+  res.render("index", {
+    title: "Express"
+  });
 });
 
 router.get("/ganesh", function(req, res) {
-  res.json({ hello: "world" });
+  res.json({
+    hello: "world"
+  });
 });
 router.get("/details", function(req, res) {
   res.render("doi");
