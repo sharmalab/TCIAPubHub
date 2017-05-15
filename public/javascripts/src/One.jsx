@@ -288,8 +288,12 @@ var App = React.createClass({
 
             {self.state.data
               ? <div>
-                  <div className="row" style={{ paddingLeft: "20px" }}>
-                    <a href="/index"><h5>Homepage</h5></a>
+                  <div className="row pagebar" style={{ paddingLeft: "20px" }}>
+                    <a href="/index">Homepage</a>
+                    <span id="headlink_spacer"> &nbsp;&gt;&nbsp;</span>
+                    <a href="/index">List of DOIs</a>
+                    <span id="headlink_spacer"> &nbsp;&gt;&nbsp;</span>
+                    <a href={self.state.data.url}>  {self.state.data.title}</a>
                   </div>
                   <h2>{self.state.data.title}</h2>
                   <div><Citation doi={self.state.data.doi} /></div>

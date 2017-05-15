@@ -20,6 +20,10 @@ a {
   text-align: center;
   padding: 30px 20px;
 }
+.pagebar{
+  padding:5px;
+  font-size: 125%;
+}
 #header {
   background: url("../images/grunge-blueall2-tcia.jpg");
   width: 100%;
