@@ -117,6 +117,10 @@ var SideBar = React.createClass({
 
 var App = React.createClass({
   render: function() {
+    function livesearch(e){
+      e.preventDefault();
+        alert("Searching...");
+    }
     return (
       <div>
         <div id="header">
