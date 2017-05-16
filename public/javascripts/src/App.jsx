@@ -125,6 +125,14 @@ var App = React.createClass({
 
         <div className="container" id="main">
           <h3 id="headline"> TCIA PubHub</h3>
+          <div className="input-group add-on">
+            <input className="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+            <div className="input-group-btn">
+              <button className="btn btn-default" style="border-right:0" type="submit">
+                <i className="glyphicon glyphicon-search"></i>
+              </button>
+            </div>
+          </div>
 
           <div id="allDois" className="col-md-10 col-md-offset-1">
             <AllDOI />
