@@ -136,7 +136,7 @@ var App = React.createClass({
                 type="text"
               />
               <div className="input-group-btn">
-                <button className="btn btn-lg" type="submit">
+                <button onClick={livesearch} className="btn btn-lg" type="submit">
                   <span className="glyphicon glyphicon-search" />
                 </button>
               </div>
