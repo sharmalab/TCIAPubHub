@@ -119,7 +119,11 @@ var App = React.createClass({
   render: function() {
     function livesearch(e){
       e.preventDefault();
-        alert("Searching...");
+      var val = document.getElementById("srch-term").value;
+      // display none those that don't match
+      [].forEach.call(document.getElementsByClassName("doiSummary"),function(elem){
+        (elem.innerHTML.search(new RegExp(val, "i")) == -1 && val) ? elem.setAttribute("style", "display:none;"): elem.setAttribute("style", "display:block;");
+      })
     }
     return (
       <div>
