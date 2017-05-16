@@ -117,13 +117,17 @@ var SideBar = React.createClass({
 
 var App = React.createClass({
   render: function() {
-    function livesearch(e){
+    function livesearch(e) {
       e.preventDefault();
       var val = document.getElementById("srch-term").value;
       // display none those that don't match
-      [].forEach.call(document.getElementsByClassName("doiSummary"),function(elem){
-        (elem.innerHTML.search(new RegExp(val, "i")) == -1 && val) ? elem.setAttribute("style", "display:none;"): elem.setAttribute("style", "display:block;");
-      })
+      [].forEach.call(document.getElementsByClassName("doiSummary"), function(
+        elem
+      ) {
+        elem.innerHTML.search(new RegExp(val, "i")) == -1 && val
+          ? elem.setAttribute("style", "display:none;")
+          : elem.setAttribute("style", "display:block;");
+      });
     }
     return (
       <div>
@@ -144,7 +148,11 @@ var App = React.createClass({
                 type="text"
               />
               <div className="input-group-btn">
-                <button onClick={livesearch} className="btn btn-lg" type="submit">
+                <button
+                  onClick={livesearch}
+                  className="btn btn-lg"
+                  type="submit"
+                >
                   <span className="glyphicon glyphicon-search" />
                 </button>
               </div>
