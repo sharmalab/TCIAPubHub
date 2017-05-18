@@ -48,6 +48,9 @@ h3{
   list-style: none;
   padding: 0;
 }
+.missing_warning{
+  text-transform: capitalize;
+}
 #doiBox {
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -72,6 +75,38 @@ h3{
   float: right;
   //    padding: 20px;
 }
+
+#main{
+    padding: 10px;
+    margin: 0 auto;
+    float: none;
+}
+
+.previousResources{
+    max-height: 300px;
+    overflow-y: scroll;
+    //border-top: 1px solid #ccc;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    margin-bottom :10px;
+    //border-bottom: 1px solid #ccc;
+}
+
+.resource {
+    border: 1px dashed #333;
+    padding: 8px;
+
+}
+.resourceType{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.resourceDelete{
+    float: right;
+    margin-top: -4px;
+}
+
 li:hover {
   background: #eee;
 }
