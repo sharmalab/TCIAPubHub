@@ -3,84 +3,117 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   margin: 0;
 }
-
 a {
   color: #00B7FF;
 }
-
+h3{
+  margin-top: 0px;
+}
 .doiSummary{
     border: 1px solid #ddd;
     border-radius: 4px;
-    padding: 12px;
+    padding: 9px;
     margin: 14px 2px;
+    background-color:rgba(192,192,192,0.33);
 }
-.doiDescription{
-    padding-top: 8px;
+.doiDescription {
+  padding-top: 8px;
 }
-.doiTitle{
-    
-}
+.doiTitle {}
 #headline {
-    text-align: center;
-    padding: 30px 20px;
+  text-align: center;
+  padding: 30px 20px;
 }
-#header{
-    background: url("../images/grunge-blueall2-tcia.jpg");
-    width: 100%;
-    height: 150px;
-    padding: 20px;
+.pagebar{
+  padding:5px;
+  font-size: 125%;
 }
-.message, .citation{
-    padding: 10px;
-    font-size: 12px;
+#header {
+  background: url("../images/grunge-blueall2-tcia.jpg");
+  width: 100%;
+  height: 100px;
+  padding: 20px;
 }
-.message{
-    width: 200px;
+.message, .citation {
+  padding: 10px;
+  font-size: 12px;
 }
-
+.message {
+  width: 200px;
+}
 .sideBarSection {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 .sideBarSection ul {
-    list-style: none;
-    padding: 0;
-
+  list-style: none;
+  padding: 0;
 }
-
-#doiBox{
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 9px;
-    margin: 18px 0;
+.missing_warning{
+  text-transform: capitalize;
 }
-
-.doiRow{
-    padding: 8px;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
+#doiBox {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 9px;
+  margin: 18px 0;
 }
-#citationDisclaimer{
-    font-size: 10px;
-    padding: 4px;
-    background: #eee;
+.doiRow {
+  padding: 8px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+#citationDisclaimer {
+  font-size: 10px;
+  padding: 4px;
+  background: #eee;
 }
 .doiSide {
+  font-weight: bold;
+}
+.resourceVal {
+  //    padding-left:40px;
+  float: right;
+  //    padding: 20px;
+}
+
+#main{
+    padding: 10px;
+    margin: 0 auto;
+    float: none;
+}
+
+.previousResources{
+    max-height: 300px;
+    overflow-y: scroll;
+    //border-top: 1px solid #ccc;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    margin-bottom :10px;
+    //border-bottom: 1px solid #ccc;
+}
+
+.resource {
+    border: 1px dashed #333;
+    padding: 8px;
+
+}
+.resourceType{
     font-weight: bold;
+    text-transform: uppercase;
 }
-
-.resourceVal{
-//    padding-left:40px;
+.resourceDelete{
     float: right;
-//    padding: 20px;
-}
-li:hover{
-    background: #eee;
+    margin-top: -4px;
 }
 
-.tab-content{
-    padding: 20px;
+li:hover {
+  background: #eee;
 }
-.shareaholic-canvas   {
-    zoom: 0.5;
-    margin-top: -5px;
+.tab-content {
+  padding: 20px;
+}
+.shareaholic-canvas {
+  zoom: 0.5;
+  margin-top: -5px;
 }
